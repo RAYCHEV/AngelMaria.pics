@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ангел и Мария - Сватбен Албум</title>
+
+  <meta property="og:title" content="Ангел и Мария - Сватбен Албум" />
+  <meta property="og:description" content="Разгледайте красивите моменти от нашия специален ден." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="wedding-hero.png" />
+
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: hsl(40, 20%, 97%);
+      --fg: hsl(20, 10%, 20%);
+      --primary: hsl(350, 25%, 65%);
+      --primary-dark: hsl(350, 28%, 55%);
+      --muted: hsl(20, 5%, 45%);
+      --border: hsl(40, 10%, 85%);
+      --card-bg: rgba(255,255,255,0.5);
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Lato', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--fg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23aeb9b2' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    h1, h2, h3, h4, h5, h6 { font-family: var(--font-serif); }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 64px;
+      display: flex;
+      align-items: center;
+    }
+    .nav-inner {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--fg);
+    }
+    .nav-brand:hover .heart { transform: scale(1.15); }
+    .heart {
+      width: 20px;
+      height: 20px;
+      fill: var(--primary);
+      color: var(--primary);
+      transition: transform 0.2s;
+    }
+    .nav-brand span {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      font-size: 0.875rem;
+      font-weight: 500;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--fg);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 80vh;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.9;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--bg), transparent 60%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 0 1rem;
+      max-width: 800px;
+      width: 100%;
+      animation: fadeZoomIn 1s ease both;
+    }
+    @keyframes fadeZoomIn {
+      from { opacity: 0; transform: scale(0.97); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .hero-card {
+      background: rgba(0,0,0,0.42);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 1rem;
+      padding: 2.5rem 3rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+    }
+    @media (max-width: 600px) {
+      .hero-card { padding: 1.75rem 1.25rem; }
+    }
+    .hero-eyebrow {
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      color: #fff;
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
+      margin-bottom: 1.25rem;
+      text-shadow: 0 4px 16px rgba(0,0,0,0.35);
+      font-weight: 700;
+      line-height: 1.15;
+    }
+    .hero-subtitle {
+      color: #fff;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      margin-bottom: 2.25rem;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.65;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      font-weight: 500;
+    }
+    .btn-gallery {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: rgba(255,255,255,0.95);
+      color: var(--fg);
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: 1rem 2.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .btn-gallery:hover {
+      background: #fff;
+      transform: scale(1.04);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    }
+    .btn-gallery svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    /* INFO SECTION */
+    .info {
+      padding: 6rem 1rem;
+      background: transparent;
+    }
+    .info-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .section-heading {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .section-heading h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      color: var(--fg);
+      margin-bottom: 1rem;
+    }
+    .section-divider {
+      width: 80px;
+      height: 4px;
+      background: var(--primary);
+      border-radius: 9999px;
+      margin: 0 auto;
+      opacity: 0.5;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-radius: 1rem;
+      background: rgba(255,255,255,0.5);
+      border: 1px solid #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      transition: box-shadow 0.2s;
+    }
+    .card:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.09); }
+    .card-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 9999px;
+      background: hsla(350, 25%, 65%, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+    .card-icon svg { width: 2rem; height: 2rem; }
+    .card h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+      color: var(--fg);
+    }
+    .card p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    /* GALLERY CTA BANNER */
+    .gallery-banner {
+      padding: 4rem 1rem;
+      background: linear-gradient(135deg, hsla(350,25%,65%,0.12) 0%, hsla(40,30%,94%,0.7) 100%);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+    .gallery-banner h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      color: var(--fg);
+      margin-bottom: 0.75rem;
+    }
+    .gallery-banner p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--primary);
+      color: #fff;
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 500;
+      padding: 0.9rem 2.25rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 4px 16px hsla(350,25%,65%,0.35);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: scale(1.04);
+    }
+    .btn-primary svg { width: 1.4rem; height: 1.4rem; flex-shrink: 0; }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem 1rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.875rem;
+      border-top: 1px solid var(--border);
+      background: rgba(255,255,255,0.5);
+      margin-top: auto;
+    }
+    footer p:first-child {
+      font-family: var(--font-serif);
+      font-style: italic;
+      margin-bottom: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-brand">
+        <svg class="heart" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+        </svg>
+        <span>Ангел и Мария</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">Начало</a></li>
+        <li><a href="#how-it-works">Информация</a></li>
+        <li><a href="https://u.pcloud.link/publink/show?code=kZqtit5Z4QOtA3o6SQ5m6vH35qpSvuaCCU7X" target="_blank" rel="noopener" style="color:var(--primary)">Галерия</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main style="flex:1">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg">
+        <img src="wedding-hero.png" alt="Сватба Ангел и Мария" />
+      </div>
+      <div class="hero-content">
+        <div class="hero-card">
+          <p class="hero-eyebrow">Добре дошли на нашия празник</p>
+          <h1 class="hero-title">Ангел &amp; Мария</h1>
+          <p class="hero-subtitle">
+            Толкова сме щастливи, че бяхте с нас. Разгледайте снимките от нашия специален ден — всеки момент е запечатан с любов.
+          </p>
+          <a
+            href="https://u.pcloud.link/publink/show?code=kZqtit5Z4QOtA3o6SQ5m6vH35qpSvuaCCU7X"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-gallery"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+            Разгледайте Галерията
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="info" id="how-it-works">
+      <div class="info-inner">
+        <div class="section-heading">
+          <h2>За Снимките</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+            </div>
+            <h3>Пълно Качество</h3>
+            <p>
+              Всички снимки са запазени в оригинален формат и пълно качество — включително RAW файлове от камери. Нищо не е компресирано.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+              </svg>
+            </div>
+            <h3>Споделена Галерия</h3>
+            <p>
+              Снимките са налични за всички гости. Кликнете на бутона по-долу, за да разгледате и свалите любимите си моменти от деня.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3>Запазени Спомени</h3>
+            <p>
+              Всеки кадър е ценен спомен. Разглеждайте снимките, споделяйте любимите моменти и ги пазете завинаги.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY BANNER -->
+    <section class="gallery-banner">
+      <h2>Готови да разгледате снимките?</h2>
+      <p>
+        Над 1900 снимки от нашия специален ден са налични в галерията. Свалете любимите си моменти безплатно.
+      </p>
+      <a
+        href="https://u.pcloud.link/publink/show?code=kZqtit5Z4QOtA3o6SQ5m6vH35qpSvuaCCU7X"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+          <circle cx="8.5" cy="8.5" r="1.5"/>
+          <polyline points="21 15 16 10 5 21"/>
+        </svg>
+        Отвори Галерията
+      </a>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Споделете любовта, уловете момента.</p>
+    <p>© 2026 Сватбен Албум на Ангел и Мария</p>
+  </footer>
+
+</body>
+</html>
